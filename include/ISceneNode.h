@@ -699,6 +699,8 @@ namespace scene
 		serialization. */
 		virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const
 		{
+            (options);
+
 			if (!out)
 				return;
 			out->addString("Name", Name.c_str());
