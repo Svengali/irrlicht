@@ -533,7 +533,7 @@ public:
 	string<T,TAlloc>& make_lower()
 	{
 		for (u32 i=0; array[i]; ++i)
-			array[i] = locale_lower( array[i] );
+			array[i] = (T)locale_lower( array[i] );
 		return *this;
 	}
 
@@ -967,7 +967,7 @@ public:
 		else
 		{
 			for (i=0; i<length; ++i)
-				o.array[i] = locale_lower ( array[i+begin] );
+				o.array[i] = (T)locale_lower( array[i+begin] );
 		}
 
 		o.array[length] = 0;
