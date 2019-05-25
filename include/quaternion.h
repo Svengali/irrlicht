@@ -391,24 +391,24 @@ inline void quaternion::getMatrix(matrix4 &dest,
 
 	quaternion q( *this);
 	q.normalize();
-	f32 X = q.X;
-	f32 Y = q.Y;
-	f32 Z = q.Z;
-	f32 W = q.W;
+	f32 XX = q.X;
+	f32 YY = q.Y;
+	f32 ZZ = q.Z;
+	f32 WW = q.W;
 
-	dest[0] = 1.0f - 2.0f*Y*Y - 2.0f*Z*Z;
-	dest[1] = 2.0f*X*Y + 2.0f*Z*W;
-	dest[2] = 2.0f*X*Z - 2.0f*Y*W;
+	dest[0] = 1.0f - 2.0f*YY*YY - 2.0f*ZZ*ZZ;
+	dest[1] = 2.0f*XX*YY + 2.0f*ZZ*WW;
+	dest[2] = 2.0f*XX*ZZ - 2.0f*YY*WW;
 	dest[3] = 0.0f;
 
-	dest[4] = 2.0f*X*Y - 2.0f*Z*W;
-	dest[5] = 1.0f - 2.0f*X*X - 2.0f*Z*Z;
-	dest[6] = 2.0f*Z*Y + 2.0f*X*W;
+	dest[4] = 2.0f*XX*YY - 2.0f*ZZ*WW;
+	dest[5] = 1.0f - 2.0f*XX*XX - 2.0f*ZZ*ZZ;
+	dest[6] = 2.0f*ZZ*YY + 2.0f*XX*WW;
 	dest[7] = 0.0f;
 
-	dest[8] = 2.0f*X*Z + 2.0f*Y*W;
-	dest[9] = 2.0f*Z*Y - 2.0f*X*W;
-	dest[10] = 1.0f - 2.0f*X*X - 2.0f*Y*Y;
+	dest[8] = 2.0f*XX*ZZ + 2.0f*YY*WW;
+	dest[9] = 2.0f*ZZ*YY - 2.0f*XX*WW;
+	dest[10] = 1.0f - 2.0f*XX*XX - 2.0f*YY*YY;
 	dest[11] = 0.0f;
 
 	dest[12] = center.X;
@@ -438,24 +438,24 @@ inline void quaternion::getMatrixCenter(matrix4 &dest,
 {
 	quaternion q(*this);
 	q.normalize();
-	f32 X = q.X;
-	f32 Y = q.Y;
-	f32 Z = q.Z;
-	f32 W = q.W;
+	f32 XX = q.X;
+	f32 YY = q.Y;
+	f32 ZZ = q.Z;
+	f32 WW = q.W;
 
-	dest[0] = 1.0f - 2.0f*Y*Y - 2.0f*Z*Z;
-	dest[1] = 2.0f*X*Y + 2.0f*Z*W;
-	dest[2] = 2.0f*X*Z - 2.0f*Y*W;
+	dest[0] = 1.0f - 2.0f*YY*YY - 2.0f*ZZ*ZZ;
+	dest[1] = 2.0f*XX*YY + 2.0f*ZZ*WW;
+	dest[2] = 2.0f*XX*ZZ - 2.0f*YY*WW;
 	dest[3] = 0.0f;
 
-	dest[4] = 2.0f*X*Y - 2.0f*Z*W;
-	dest[5] = 1.0f - 2.0f*X*X - 2.0f*Z*Z;
-	dest[6] = 2.0f*Z*Y + 2.0f*X*W;
+	dest[4] = 2.0f*XX*YY - 2.0f*ZZ*WW;
+	dest[5] = 1.0f - 2.0f*XX*XX - 2.0f*ZZ*ZZ;
+	dest[6] = 2.0f*ZZ*YY + 2.0f*XX*WW;
 	dest[7] = 0.0f;
 
-	dest[8] = 2.0f*X*Z + 2.0f*Y*W;
-	dest[9] = 2.0f*Z*Y - 2.0f*X*W;
-	dest[10] = 1.0f - 2.0f*X*X - 2.0f*Y*Y;
+	dest[8] = 2.0f*XX*ZZ + 2.0f*YY*WW;
+	dest[9] = 2.0f*ZZ*YY - 2.0f*XX*WW;
+	dest[10] = 1.0f - 2.0f*XX*XX - 2.0f*YY*YY;
 	dest[11] = 0.0f;
 
 	dest.setRotationCenter ( center, translation );
@@ -466,24 +466,24 @@ inline void quaternion::getMatrix_transposed(matrix4 &dest) const
 {
 	quaternion q(*this);
 	q.normalize();
-	f32 X = q.X;
-	f32 Y = q.Y;
-	f32 Z = q.Z;
-	f32 W = q.W;
+	f32 XX = q.X;
+	f32 YY = q.Y;
+	f32 ZZ = q.Z;
+	f32 WW = q.W;
 
-	dest[0] = 1.0f - 2.0f*Y*Y - 2.0f*Z*Z;
-	dest[4] = 2.0f*X*Y + 2.0f*Z*W;
-	dest[8] = 2.0f*X*Z - 2.0f*Y*W;
+	dest[0] = 1.0f - 2.0f*YY*YY - 2.0f*ZZ*ZZ;
+	dest[4] = 2.0f*XX*YY + 2.0f*ZZ*WW;
+	dest[8] = 2.0f*XX*ZZ - 2.0f*YY*WW;
 	dest[12] = 0.0f;
 
-	dest[1] = 2.0f*X*Y - 2.0f*Z*W;
-	dest[5] = 1.0f - 2.0f*X*X - 2.0f*Z*Z;
-	dest[9] = 2.0f*Z*Y + 2.0f*X*W;
+	dest[1] = 2.0f*XX*YY - 2.0f*ZZ*WW;
+	dest[5] = 1.0f - 2.0f*XX*XX - 2.0f*ZZ*ZZ;
+	dest[9] = 2.0f*ZZ*YY + 2.0f*XX*WW;
 	dest[13] = 0.0f;
 
-	dest[2] = 2.0f*X*Z + 2.0f*Y*W;
-	dest[6] = 2.0f*Z*Y - 2.0f*X*W;
-	dest[10] = 1.0f - 2.0f*X*X - 2.0f*Y*Y;
+	dest[2] = 2.0f*XX*ZZ + 2.0f*YY*WW;
+	dest[6] = 2.0f*ZZ*YY - 2.0f*XX*WW;
+	dest[10] = 1.0f - 2.0f*XX*XX - 2.0f*YY*YY;
 	dest[14] = 0.0f;
 
 	dest[3] = 0.f;

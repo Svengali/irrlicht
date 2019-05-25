@@ -469,37 +469,37 @@ namespace quake3
 		f32 evaluate ( f32 dt ) const
 		{
 			// phase in 0 and 1..
-			f32 x = core::fract( (dt + phase ) * frequency );
-			f32 y = 0.f;
+			f32 xx = core::fract( (dt + phase ) * frequency );
+			f32 yy = 0.f;
 
 			switch ( func )
 			{
 				case SINUS:
-					y = sinf ( x * core::PI * 2.f );
+					yy = sinf ( xx * core::PI * 2.f );
 					break;
 				case COSINUS:
-					y = cosf ( x * core::PI * 2.f );
+					yy = cosf ( xx * core::PI * 2.f );
 					break;
 				case SQUARE:
-					y = x < 0.5f ? 1.f : -1.f;
+					yy = xx < 0.5f ? 1.f : -1.f;
 					break;
 				case TRIANGLE:
-					y = x < 0.5f ? ( 4.f * x ) - 1.f : ( -4.f * x ) + 3.f;
+					yy = xx < 0.5f ? ( 4.f * xx ) - 1.f : ( -4.f * xx ) + 3.f;
 					break;
 				case SAWTOOTH:
-					y = x;
+					yy = xx;
 					break;
 				case SAWTOOTH_INVERSE:
-					y = 1.f - x;
+					yy = 1.f - xx;
 					break;
 				case NOISE:
-					y = Noiser::get();
+					yy = Noiser::get();
 					break;
 				default:
 					break;
 			}
 
-			return base + ( y * amp );
+			return base + ( yy * amp );
 		}
 
 
