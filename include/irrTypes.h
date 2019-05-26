@@ -16,7 +16,9 @@ namespace irr
 
 //! 8 bit unsigned variable.
 /** This is a typedef for unsigned char, it ensures portability of the engine. */
-#if defined(_MSC_VER) || ((__BORLANDC__ >= 0x530) && !defined(__STRICT_ANSI__))
+#if true
+typedef uint8_t u8;
+#elif defined(_MSC_VER) || ((__BORLANDC__ >= 0x530) && !defined(__STRICT_ANSI__))
 typedef unsigned __int8		u8;
 #else
 typedef unsigned char		u8;
@@ -38,7 +40,9 @@ typedef char			c8;
 
 //! 16 bit unsigned variable.
 /** This is a typedef for unsigned short, it ensures portability of the engine. */
-#if defined(_MSC_VER) || ((__BORLANDC__ >= 0x530) && !defined(__STRICT_ANSI__))
+#if true
+typedef uint16_t u16;
+#elif defined(_MSC_VER) || ((__BORLANDC__ >= 0x530) && !defined(__STRICT_ANSI__))
 typedef unsigned __int16	u16;
 #else
 typedef unsigned short		u16;
@@ -46,7 +50,9 @@ typedef unsigned short		u16;
 
 //! 16 bit signed variable.
 /** This is a typedef for signed short, it ensures portability of the engine. */
-#if defined(_MSC_VER) || ((__BORLANDC__ >= 0x530) && !defined(__STRICT_ANSI__))
+#if true
+typedef int16_t s16;
+#elif defined(_MSC_VER) || ((__BORLANDC__ >= 0x530) && !defined(__STRICT_ANSI__))
 typedef __int16			s16;
 #else
 typedef signed short		s16;
@@ -56,7 +62,9 @@ typedef signed short		s16;
 
 //! 32 bit unsigned variable.
 /** This is a typedef for unsigned int, it ensures portability of the engine. */
-#if defined(_MSC_VER) || ((__BORLANDC__ >= 0x530) && !defined(__STRICT_ANSI__))
+#if true
+typedef uint32_t u32;
+#elif defined(_MSC_VER) || ((__BORLANDC__ >= 0x530) && !defined(__STRICT_ANSI__))
 typedef unsigned __int32	u32;
 #else
 typedef unsigned int		u32;
@@ -64,7 +72,9 @@ typedef unsigned int		u32;
 
 //! 32 bit signed variable.
 /** This is a typedef for signed int, it ensures portability of the engine. */
-#if defined(_MSC_VER) || ((__BORLANDC__ >= 0x530) && !defined(__STRICT_ANSI__))
+#if true
+typedef int32_t s32;
+#elif defined(_MSC_VER) || ((__BORLANDC__ >= 0x530) && !defined(__STRICT_ANSI__))
 typedef __int32			s32;
 #else
 typedef signed int		s32;

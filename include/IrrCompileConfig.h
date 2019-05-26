@@ -15,6 +15,7 @@
 #define IRRLICHT_SDK_VERSION "1.9.0"
 
 #include <stdio.h> // TODO: Although included elsewhere this is required at least for mingw
+#include <cstdint>
 
 //! The defines for different operating system are:
 //! _IRR_WINDOWS_ for all irrlicht supported Windows versions
